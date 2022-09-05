@@ -1,7 +1,5 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-# import requests
-# import re
 import pandas as pd
 
 URL = 'http://www.kyobobook.co.kr/bestSellerNew/bestseller.laf?mallGb=KOR&linkClass=B&range=1&kind=2&orderClick=DAd'
@@ -22,7 +20,7 @@ for book in range(1, 21): # top 20
   driver.implicitly_wait(time_to_wait=5)
 
   # 페이지가 다음으로 넘어가면
-  for page in range(1, 300):
+  for page in range(n):
     for idx in range(1, 6): # 리뷰 5개씩
       rating_xpath = driver.find_element(By.XPATH, f'''//*[@id="box_detail_review"]/ul/li[{idx}]/div[1]/dl/dd[3]/span''') # 별점
       text_xpath = driver.find_element(By.XPATH, f'''//*[@id="box_detail_review"]/ul/li[{idx}]/div[1]/dl/dd[5]/div''') # 리뷰 글
@@ -38,8 +36,9 @@ for book in range(1, 21): # top 20
 
     # 다음페이지 넘기기
     driver.find_element(By.XPATH, f'''//*[@id="box_detail_review"]/div[3]/div/a[10]''').click()
-    # driver.implicitly_wait(time_to_wait=5)
+    driver.implicitly_wait(time_to_wait=5)
     driver.find_element(By.XPATH, f'''//*[@id="box_detail_review"]/div[3]/div/a[12]''').click()
+    driver.implicitly_wait(time_to_wait=5)
 
   driver.back()
 
