@@ -1,3 +1,5 @@
+from errno import ESTALE
+from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import pandas as pd
@@ -19,8 +21,9 @@ for book in range(1, 21): # top 20
   driver.find_element(By.XPATH, '''//*[@id="event_info"]/li[3]/a''').click() # 리뷰 클릭
   driver.implicitly_wait(time_to_wait=5)
 
+  # try:
   # 페이지가 다음으로 넘어가면
-  for page in range(n):
+  for page in range(1, 300):
     for idx in range(1, 6): # 리뷰 5개씩
       rating_xpath = driver.find_element(By.XPATH, f'''//*[@id="box_detail_review"]/ul/li[{idx}]/div[1]/dl/dd[3]/span''') # 별점
       text_xpath = driver.find_element(By.XPATH, f'''//*[@id="box_detail_review"]/ul/li[{idx}]/div[1]/dl/dd[5]/div''') # 리뷰 글
@@ -33,12 +36,26 @@ for book in range(1, 21): # top 20
       print('text: ', text)
       print('date: ', date)
       driver.implicitly_wait(time_to_wait=5)
+  # except:
+  #   break
+  
+    paging_num_xpath = driver.find_element(By.XPATH, '''//*[@id="box_detail_review"]/div[3]/div''')
+    paging_num = paging_num_xpath.text
+    
+    print("paging_num 확인==============", paging_num)
+    print("paging_num 타입 확인==============", type(paging_num))
+    if page%10 != 0:
+      paging_num[page%10+1].click()
+    else:
+      paging_num[11].click()
 
     # 다음페이지 넘기기
-    driver.find_element(By.XPATH, f'''//*[@id="box_detail_review"]/div[3]/div/a[10]''').click()
-    driver.implicitly_wait(time_to_wait=5)
-    driver.find_element(By.XPATH, f'''//*[@id="box_detail_review"]/div[3]/div/a[12]''').click()
-    driver.implicitly_wait(time_to_wait=5)
+    # driver.find_element(By.XPATH, f'''//*[@id="box_detail_review"]/div[3]/div/a[10]''').click()
+    # driver.implicitly_wait(time_to_wait=5)
+    # sleep(3)
+    # driver.find_element(By.XPATH, f'''//*[@id="box_detail_review"]/div[3]/div/a[12]''').click()
+    # driver.implicitly_wait(time_to_wait=5)
+    # sleep(3)
 
   driver.back()
 
