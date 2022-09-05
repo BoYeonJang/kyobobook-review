@@ -6,7 +6,8 @@ import urllib.request
 
 
 
-driver = webdriver.Chrome()
+# webdriver가 위치한 경로로 설정
+driver = webdriver.Chrome('/Users/boyeonjang/git/kyobobook-review/chromedriver')
 
 #(추가) 분야별로 for문
 driver.get("http://www.kyobobook.co.kr/bestSellerNew/bestseller.laf?mallGb=KOR&linkClass=c&range=1&kind=0&orderClick=DAb")
