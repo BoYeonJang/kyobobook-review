@@ -1,8 +1,11 @@
 from errno import ESTALE
+from operator import index
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import pandas as pd
+import csv
+import os
 
 # URL = 'http://www.kyobobook.co.kr/bestSellerNew/bestseller.laf?mallGb=KOR&linkClass=B&range=1&kind=2&orderClick=DAd'
 # URL = 'http://www.kyobobook.co.kr/bestSellerNew/bestseller.laf?mallGb=KOR&linkClass=c&range=1&kind=2&orderClick=DAd' #자기계발
@@ -15,10 +18,10 @@ driver.get(url=URL)
 
 part_xpath = driver.find_element(By.XPATH, '''//*[@id="main_contents"]/div[3]/h4''')
 part = part_xpath.text
-part1 = part.split()[0]
-print('part: ', part1)
+partName = part.split()[0]
+print('part: ', partName)
 
-for book in range(1, 21): # top 20
+for book in range(1, 3): # top 20
   driver.find_element(By.XPATH, f'''//*[@id="main_contents"]/ul/li[{book}]/div[2]/div[2]/a/strong''').click() # 책 제목 클릭
   driver.implicitly_wait(time_to_wait=5) # 파싱이 되면 바로 다음 코드로 넘어간다 파싱이 안될 경우 최대 10초를 기다린다
 
@@ -28,6 +31,8 @@ for book in range(1, 21): # top 20
 
   driver.find_element(By.XPATH, '''//*[@id="event_info"]/li[3]/a''').click() # 리뷰 클릭
   driver.implicitly_wait(time_to_wait=5)
+
+  mList = []
 
   # 페이지가 다음으로 넘어가면
   for n in range(1, 300): # 59페이지까지만 수집
@@ -50,18 +55,53 @@ for book in range(1, 21): # top 20
       pn = len(page_bar)
 
       if n%10 != 0:
-          print('============= {0} 페이지의 리뷰 5개 ============='.format(n))
+          print(f'============= {n} 페이지의 리뷰 5개 =============')
           page_bar[pn-2].click()
           sleep(1)
     except:
       print('============= 다음 페이지가 없습니다 =============')
+      sleep(1)
       break
 
   driver.back()
   driver.back()
+  
+  mList.append([partName, title, date, rating, text])
+  for j in mList:
+    temp = []
+    temp.append(j)
+    with open('kyobo_best_books_review.csv', 'w', encoding='utf-8-sig', newline='') as f:
+      writer = csv.writer(f)
+      writer.writerows(temp)
+
+ 
+
+  # saveFile('kyobo_best_books_review.csv', mList)
+  # for j in 
 
   # 4개 열을 가진 pandas DataFrame으로 바꿔준 뒤 엑셀 파일로 저장
-  df = pd.DataFrame({'part':part, 'title':title, 'date':date, 'rating':rating, 'text':text}, index=[0])
-  df.to_csv("best_books.csv", mode='w', encoding='utf-8-sig')
+  # total_data = {'part':part, 'title':title, 'date':date, 'rating':rating, 'text':text}
+  # df = pd.DataFrame(total_data, index=[0])
+
+  # if not os.path.exists('best_books.csv'):
+  #   df.to_csv('best_books.csv', index=False, mode='w', encoding='utf-8-sig')
+  #   print('============= csv 파일에 저장합니다 ============= ')
+  # else:
+  #   df.to_csv('best_books.csv', index=False, mode='w', encoding='utf-8-sig', header=False)
+  #   print('============= csv 파일에 저장 되었습니다 ============= ')
+  # List = []
+  
+  # for j in total_data:
+  #   temp = []
+  #   temp.append(j)
+  #   List.append(temp)
+
+  # f = open('best_books.csv', 'w', encoding='utf-8', newline='')
+  # csvWriter = csv.writer(f)
+  # for k in List:
+  #   csvWriter.writerow(j)
+
+  # df = pd.DataFrame({'part':part, 'title':title, 'date':date, 'rating':rating, 'text':text}, index=[0])
+  # df.to_csv("best_books.csv", mode='w', encoding='utf-8-sig')
   
 # driver.quit()
