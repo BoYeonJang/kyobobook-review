@@ -12,9 +12,12 @@ import os
 URL = 'http://www.kyobobook.co.kr/bestSellerNew/bestseller.laf?mallGb=KOR&linkClass=a&range=1&kind=2&orderClick=DAd' # 요리/와인
 
 
-driver = webdriver.Chrome('/Users/boyeonjang/git/kyobobook-review/chromedriver')
-# driver = webdriver.Chrome('C:/Users/eunho/Workspace/kyobobook-review/chromedriver.exe')
+# driver = webdriver.Chrome('/Users/boyeonjang/git/kyobobook-review/chromedriver')
+driver = webdriver.Chrome('C:/Users/eunho/Workspace/kyobobook-review/chromedriver.exe')
 driver.get(url=URL)
+
+# df 선언
+df = pd.DataFrame(columns=['part','title','date','rating','text'])
 
 part_xpath = driver.find_element(By.XPATH, '''//*[@id="main_contents"]/div[3]/h4''')
 part = part_xpath.text
@@ -26,13 +29,14 @@ for book in range(1, 3): # top 20
   driver.implicitly_wait(time_to_wait=5) # 파싱이 되면 바로 다음 코드로 넘어간다 파싱이 안될 경우 최대 10초를 기다린다
 
   title_xpath = driver.find_element(By.XPATH, '''//*[@id="container"]/div[2]/form/div[1]/h1/strong''') # 책 제목
+#   sleep(1)
   title = title_xpath.text
   print('title: ', title)
 
   driver.find_element(By.XPATH, '''//*[@id="event_info"]/li[3]/a''').click() # 리뷰 클릭
   driver.implicitly_wait(time_to_wait=5)
 
-  mList = []
+#   mList = []
 
   # 페이지가 다음으로 넘어가면
   for n in range(1, 300): # 59페이지까지만 수집
@@ -49,7 +53,13 @@ for book in range(1, 3): # top 20
         print('date: ', date)
         print('rating: ', rating)
         print('text: ', text)
-        driver.implicitly_wait(time_to_wait=5)
+        sleep(0.5)
+
+        df = df.append({'part':part, 'title':title, 'date':date, 'rating':rating, 'text':text},ignore_index=True)
+        
+        # mList.append([partName, title, date, rating, text])
+        sleep(1)
+        # driver.implicitly_wait(time_to_wait=5)
 
       page_bar = driver.find_elements(By.CSS_SELECTOR,'#box_detail_review > div.list_paging.align_center > div >*')
       pn = len(page_bar)
@@ -63,45 +73,18 @@ for book in range(1, 3): # top 20
       sleep(1)
       break
 
-  driver.back()
-  driver.back()
+#   driver.back()
+#   driver.back()
+  print("df확인-------\n",df)
+  df.to_csv("./test.csv", encoding='utf-8-sig')
+#   break
+
   
-  mList.append([partName, title, date, rating, text])
-  for j in mList:
-    temp = []
-    temp.append(j)
-    with open('kyobo_best_books_review.csv', 'w', encoding='utf-8-sig', newline='') as f:
-      writer = csv.writer(f)
-      writer.writerows(temp)
+#   for j in mList:
+#     temp = []
+#     temp.append(j)
+#     with open('kyobo_best_books_review.csv', 'w', encoding='utf-8-sig', newline='') as f:
+#       writer = csv.writer(f)
+#       writer.writerows(temp)
 
- 
-
-  # saveFile('kyobo_best_books_review.csv', mList)
-  # for j in 
-
-  # 4개 열을 가진 pandas DataFrame으로 바꿔준 뒤 엑셀 파일로 저장
-  # total_data = {'part':part, 'title':title, 'date':date, 'rating':rating, 'text':text}
-  # df = pd.DataFrame(total_data, index=[0])
-
-  # if not os.path.exists('best_books.csv'):
-  #   df.to_csv('best_books.csv', index=False, mode='w', encoding='utf-8-sig')
-  #   print('============= csv 파일에 저장합니다 ============= ')
-  # else:
-  #   df.to_csv('best_books.csv', index=False, mode='w', encoding='utf-8-sig', header=False)
-  #   print('============= csv 파일에 저장 되었습니다 ============= ')
-  # List = []
-  
-  # for j in total_data:
-  #   temp = []
-  #   temp.append(j)
-  #   List.append(temp)
-
-  # f = open('best_books.csv', 'w', encoding='utf-8', newline='')
-  # csvWriter = csv.writer(f)
-  # for k in List:
-  #   csvWriter.writerow(j)
-
-  # df = pd.DataFrame({'part':part, 'title':title, 'date':date, 'rating':rating, 'text':text}, index=[0])
-  # df.to_csv("best_books.csv", mode='w', encoding='utf-8-sig')
-  
-# driver.quit()
+    # break
