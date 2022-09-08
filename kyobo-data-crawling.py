@@ -34,7 +34,7 @@ try:
     sleep(1.5)
     title_xpath = driver.find_element(By.XPATH, '''//*[@id="container"]/div[2]/form/div[1]/h1/strong''') # 책 제목
     title = title_xpath.text
-
+    driver.refresh()
     try:
       driver.find_element(By.XPATH, '''//*[@id="event_info"]/li[3]/a''').send_keys(Keys.ENTER) # 리뷰 클릭
     except:
