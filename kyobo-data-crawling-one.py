@@ -7,7 +7,7 @@ import pandas as pd
 import csv
 import os
 
-URL = 'http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791170400608#review'
+URL = 'http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791191056372#review'
 
 chrome_options = webdriver.ChromeOptions()
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
@@ -33,11 +33,11 @@ title = title_xpath.text
 print('title: ', title)
 
 # driver.find_element(By.XPATH, '''//*[@id="event_info"]/li[3]/a''').click() # 리뷰 클릭
-# driver.switch_to.frame(driver.find_element(By.XPATH, '''//*[@id="event_info"]/li[3]/a''')).click() # 리뷰 클릭
+# driver.switch_to.frame(driver.find_element(By.XPATH, '''//*[@id="eventㄴ_info"]/li[3]/a''')).click() # 리뷰 클릭
 driver.implicitly_wait(time_to_wait=10)
 
 # 페이지가 다음으로 넘어가면
-for n in range(1, 300): # 59페이지까지만 수집
+for n in range(1, 61): # 59페이지까지만 수집
   try:
     sleep(1)
     for idx in range(1, 6): # 리뷰 5개씩
