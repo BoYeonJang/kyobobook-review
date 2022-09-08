@@ -1,11 +1,14 @@
+from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-from time import sleep
 import pandas as pd
 import csv
 import os
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning) # concat 쓰라는 경고 무시
 
 URL = 'http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791191056372#review'
 
