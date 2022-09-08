@@ -11,7 +11,7 @@ import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning) # concat 쓰라는 경고 무시
 
 try:
-  URL = 'http://www.kyobobook.co.kr/bestSellerNew/bestseller.laf?mallGb=KOR&linkClass=a&range=1&kind=2&orderClick=DAd' # 요리/와인
+  URL = 'http://www.kyobobook.co.kr/bestSellerNew/bestseller.laf?mallGb=KOR&linkClass=G&range=1&kind=2&orderClick=DAd' # 어린이
   # options = webdriver.ChromeOptions()
   # options.add_experimental_option("excludeSwitches", ["enable-logging"])
   # driver = webdriver.Chrome(options=options)
