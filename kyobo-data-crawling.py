@@ -1,27 +1,24 @@
-from errno import ESTALE
-from operator import index
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
 import csv
 import os
-from selenium.webdriver.common.keys import Keys
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning) # concat 쓰라는 경고 무시
 
-
 try:
-  URL = 'http://www.kyobobook.co.kr/bestSellerNew/bestseller.laf?mallGb=KOR&linkClass=c&range=1&kind=2&orderClick=DAd' #자기계발
-  # URL = 'http://www.kyobobook.co.kr/bestSellerNew/bestseller.laf?mallGb=KOR&linkClass=a&range=1&kind=2&orderClick=DAd' # 요리/와인
-  options = webdriver.ChromeOptions()
-  options.add_experimental_option("excludeSwitches", ["enable-logging"])
-  driver = webdriver.Chrome(options=options)
+  URL = 'http://www.kyobobook.co.kr/bestSellerNew/bestseller.laf?mallGb=KOR&linkClass=J&range=1&kind=2&orderClick=DAd' # 정치사회
+  # options = webdriver.ChromeOptions()
+  # options.add_experimental_option("excludeSwitches", ["enable-logging"])
+  # driver = webdriver.Chrome(options=options)
 
-  # driver = webdriver.Chrome('/Users/boyeonjang/git/kyobobook-review/chromedriver')
-  # driver = webdriver.Chrome('C:/Users/eunho/Workspace/kyobobook-review/chromedriver.exe')
+  chrome_options = webdriver.ChromeOptions()
+  driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
   driver.get(url=URL)
-
 
   # df 선언
   df = pd.DataFrame(columns=['part','title','date','rating','text'])
