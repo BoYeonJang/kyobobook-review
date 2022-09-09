@@ -42,7 +42,10 @@ try:
     sleep(3)
 
     # 페이지가 다음으로 넘어가면
-    for n in range(1, 61): # 60페이지까지만 수집
+    for n in range(1, 62): # 60페이지까지만 수집
+      print(">>n: ",n)
+      if n == 61:
+          break
       try:
         sleep(1)
         for idx in range(1, 6): # 리뷰 5개씩
