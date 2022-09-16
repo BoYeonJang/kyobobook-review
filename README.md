@@ -4,9 +4,21 @@
 
 프레임워크: [Vue](https://cli.vuejs.org/)
 
+```
+cd frontend
+```
+
+frontend 폴더로 이동 후
+
+```
+npm install
+```
+
+npm 패키지 설치
+
 ## backend
 
-프레임워크: [Express](http://expressjs.com/ko/)
+프레임워크: [Flask](https://flask.palletsprojects.com/en/2.2.x/)
 
 ## Data
 
