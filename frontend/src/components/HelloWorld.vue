@@ -1,58 +1,80 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <!-- <h1>{{ msg }}</h1> -->
+    <h1>안녕하세요.<br />오늘은 어떤 책을 읽고 싶은지 생각을 적어주세요.</h1>
+    <input class="main_search" />
     <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
+      <b>오늘은 교훈이 있는 책을 읽고 싶어</b>에 어울리는책의 종류는
+      <b>경제경영</b>입니다.<br /><b>경제경영</b> 분야의 베스트 셀러는 다음과
+      같습니다.
     </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    <table class="book_table">
+      <th>경제경영</th>
+      <tr>
+        <td>부자 아빠 가난한 아빠</td>
+      </tr>
+      <tr>
+        <td>우리는 어디서 살아야 하는가</td>
+      </tr>
+      <tr>
+        <td>부자의 그릇</td>
+      </tr>
+      <tr>
+        <td>인천 부동산의 미래</td>
+      </tr>
+      <tr>
+        <td>변화하는 세계 질서</td>
+      </tr>
+    </table>
+    <p><b>부자 아빠 가난한 아빠</b>의 키워드입니다.</p>
+    <img alt="Word Cloud" src="../assets/wordcloud.png" />
+    <img alt="Word Cloud" src="../assets/wordcloud.png" />
+    <p>
+      <b>부자 아빠 가난한 아빠</b>에 대해 더 궁금한 게 있으시다면
+      입력해주세요.<br />기존 고객 리뷰를 요약해서 알려드립니다.
+    </p>
+    <input class="review_search" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
   props: {
-    msg: String
-  }
-}
+    // msg: String,
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+.main_search {
+  margin: 20px;
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 40rem;
+  font-size: 15px;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.review_search {
+  /* margin: 20px; */
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 40rem;
+  font-size: 15px;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+th,
+td {
+  border-bottom: 1px solid black;
+  border-collapse: collapse;
 }
-a {
-  color: #42b983;
+.book_table {
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+p {
+  padding: 20px;
 }
 </style>
