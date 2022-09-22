@@ -10,7 +10,7 @@ import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning) # concat 쓰라는 경고 무시
 
 try:
-  URL = 'http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9788934972464#review'
+  URL = 'http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9788983711892#review'
 
   chrome_options = webdriver.ChromeOptions()
   driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
@@ -28,9 +28,9 @@ try:
   driver.implicitly_wait(time_to_wait=10)
 
   # 페이지가 다음으로 넘어가면
-  for n in range(1, 404):
+  for n in range(1, 239):
     print(">>n: ",n)
-    if n == 405:
+    if n == 238:
       break
     try:
       sleep(1)
