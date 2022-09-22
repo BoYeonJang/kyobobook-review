@@ -13,6 +13,8 @@ sklearn = "*"
 wordcloud = "*"
 flask = "*"
 gunicorn = "*"
+selenium = "*"
+webdriver-manager = "*"
 
 [dev-packages]
 
