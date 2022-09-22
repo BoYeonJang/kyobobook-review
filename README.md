@@ -35,20 +35,48 @@ npm 패키지 설치
 
 ## pipenv 설정
 
+Pipenv 설치
+
 ```
 pip3 install pipenv
 또는
 pip install pipenv
 ```
 
-레포지토리 폴더로 이동 후
+clone한 레포지토리 폴더로 이동 후
 
 ```
 pipenv shell
 ```
 
-종료는
+가상환경에 제대로 동작하는지 확인 하려면
+
+```
+pipenv --venv
+```
+
+가상환경 종료는
 
 ```
 exit
+```
+
+가상환경 삭제는
+
+```
+pipenv --rm
+```
+
+## 크롤링 방법
+
+`{kyobo-data-crawling}.py`가 위치한 폴더로 이동 후
+
+```
+python kyobo-data-crawling.py
+```
+
+책 한 권만 이라면
+
+```
+python kyobo-data-crawling-one.py
 ```
