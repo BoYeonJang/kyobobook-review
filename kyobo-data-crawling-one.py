@@ -6,11 +6,12 @@ from time import sleep
 import pandas as pd
 import csv
 import os
+from selenium.webdriver.common.keys import Keys
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning) # concat 쓰라는 경고 무시
 
 try:
-  URL = 'http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9788983711892#review'
+  URL = 'http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788972756194&orderClick=LEa&Kc=#review'
 
   chrome_options = webdriver.ChromeOptions()
   driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
@@ -28,16 +29,22 @@ try:
   driver.implicitly_wait(time_to_wait=10)
 
   # 페이지가 다음으로 넘어가면
-  for n in range(1, 239):
+  for n in range(1, 404):
     print(">>n: ",n)
-    if n == 238:
+    if n == 405:
       break
     try:
       sleep(1)
       for idx in range(1, 6): # 리뷰 5개씩
-        rating_xpath = driver.find_element(By.XPATH, f'''//*[@id="box_detail_review"]/ul/li[{idx}]/div[1]/dl/dd[3]/span''') # 별점
-        text_xpath = driver.find_element(By.XPATH, f'''//*[@id="box_detail_review"]/ul/li[{idx}]/div[1]/dl/dd[5]/div''') # 리뷰 글
-        rating = rating_xpath.text
+        try:
+          rating_xpath = driver.find_element(By.XPATH, f'''//*[@id="box_detail_review"]/ul/li[{idx}]/div[1]/dl/dd[3]/span''') # 별점
+          text_xpath = driver.find_element(By.XPATH, f'''//*[@id="box_detail_review"]/ul/li[{idx}]/div[1]/dl/dd[5]/div''') # 리뷰 글
+          rating = rating_xpath.text
+        except:
+          text_xpath = driver.find_element(By.XPATH, f'''//*[@id="box_detail_review"]/ul/li[{idx}]/div[1]/dl/dd[4]/div''') # 리뷰 글
+          rating = 4
+        
+        # rating = rating_xpath.text/
         text = text_xpath.text
         print('rating: ', rating)
         print('text: ', text)
@@ -48,7 +55,7 @@ try:
       pn = len(page_bar)
       if n%10 != 0:
           print(f'============= {n} 페이지의 리뷰 5개 =============')
-          page_bar[pn-2].click()
+          page_bar[pn-2].send_keys(Keys.ENTER)
           sleep(1)
     except:
       print('============= 다음 페이지가 없습니다 =============')
