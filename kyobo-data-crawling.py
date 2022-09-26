@@ -71,6 +71,7 @@ try:
 
         print(f'============= {n+1} 페이지의 리뷰 5개 =============')
         page_bar[pn-2].send_keys(Keys.ENTER)
+        print("pn:: ", pn)
 
       except:
         print('============= 다음 페이지가 없습니다 =============')
