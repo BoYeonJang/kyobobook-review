@@ -31,7 +31,7 @@ try:
     print(">>n: ",n)
     if n == 20000:
       break
-    sleep(2)
+    sleep(1)
     for idx in range(1, 11): # 리뷰 5개씩
         rating_xpath = driver.find_element(By.XPATH, f'''//*[@id="kloverReviewList"]/ul/li[{idx}]/div[1]/dl/dd[3]/span''') # 별점
         # print("rating_xpath:: ", rating_xpath ,"::", rating_xpath.text)
@@ -42,7 +42,7 @@ try:
         print(rating)
         print(text)
         df = df.append({'part':part, 'title':title,'rating':rating, 'text':text},ignore_index=True)
-        sleep(2)
+        sleep(1)
 
     print("--------------------next----------------------------------")
     #
