@@ -31,7 +31,7 @@ try:
     print(">>n: ",n)
     if n == 20000:
       break
-    sleep(1)
+    sleep(2)
     for idx in range(1, 11): # 리뷰 5개씩
         rating_xpath = driver.find_element(By.XPATH, f'''//*[@id="kloverReviewList"]/ul/li[{idx}]/div[1]/dl/dd[3]/span''') # 별점
         # print("rating_xpath:: ", rating_xpath ,"::", rating_xpath.text)
@@ -42,7 +42,7 @@ try:
         print(rating)
         print(text)
         df = df.append({'part':part, 'title':title,'rating':rating, 'text':text},ignore_index=True)
-        sleep(1)
+        sleep(2)
 
     print("--------------------next----------------------------------")
     #
@@ -50,6 +50,6 @@ try:
     page_bar[0].send_keys(Keys.ENTER)
 
   df.to_csv(f"./ebook_namiya.csv", encoding='utf-8-sig')
-except:
-    print("예외처리")
-    df.to_csv(f"./ebook_namiya.csv", encoding='utf-8-sig')
+except Exception as e:
+  print("!!!---예외가 발생했습니다.--- : ", e, '-----!!!!')
+  df.to_csv(f"./ebook_namiya.csv", encoding='utf-8-sig')
