@@ -8,9 +8,21 @@
 
 프레임워크: [Flask](https://flask.palletsprojects.com/en/2.2.x/)
 
+## docker
+
+팀 프로젝트로 팀원 및 서버와 개발 환경을 쉽게 동기화하기 위해 [Docker](https://www.docker.com/)를 사용했다.
+
 ```
-flask --debug run
+kyobobook-review
 ```
+
+가 있는 폴더로 진입 후
+
+```
+docker-compose up
+```
+
+`frontend:8080`, `backend:7000`가 실행된다.
 
 ## Data
 
