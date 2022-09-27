@@ -1,4 +1,5 @@
 # build stage
+# node의 latest 버전을 사용한다.
 FROM node:latest as build-stage
 WORKDIR /frontend
 COPY package*.json ./

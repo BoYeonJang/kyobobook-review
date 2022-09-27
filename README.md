@@ -8,6 +8,10 @@
 
 프레임워크: [Flask](https://flask.palletsprojects.com/en/2.2.x/)
 
+```
+flask --debug run
+```
+
 ## Data
 
 [Selenium4](https://www.selenium.dev/)를 활용하여 [교보문고](http://www.kyobobook.co.kr/index.laf)의 2022년 8월 1일부터 2022년 8월 31일까지의 종합 월간 베스트의 각 분야별 책에 대한 리뷰데이터를 구했다.
