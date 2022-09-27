@@ -17,6 +17,7 @@ selenium = "*"
 webdriver-manager = "*"
 torch = "*"
 torchvision = "*"
+flask-cors = "*"
 
 [dev-packages]
 
