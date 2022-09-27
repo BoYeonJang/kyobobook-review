@@ -4,18 +4,6 @@
 
 프레임워크: [Vue](https://cli.vuejs.org/)
 
-```
-cd frontend
-```
-
-frontend 폴더로 이동 후
-
-```
-npm install
-```
-
-npm 패키지 설치
-
 ## backend
 
 프레임워크: [Flask](https://flask.palletsprojects.com/en/2.2.x/)
@@ -80,3 +68,7 @@ python kyobo-data-crawling.py
 ```
 python kyobo-data-crawling-one.py
 ```
+
+## 서비스 아키텍처
+
+![서비스_아키텍처](./img/서비스_아키텍처.png)
