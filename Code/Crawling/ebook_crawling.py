@@ -11,16 +11,17 @@ import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning) # concat 쓰라는 경고 무시
 
 try:
-  URL = 'https://digital.kyobobook.co.kr/digital/ebook/ebookDetail.ink?selectedLargeCategory=001&barcode=4808972756194&orderClick=LEH&Kc=#tab_content_063'
+  URL = 'https://digital.kyobobook.co.kr/digital/ebook/ebookDetail.ink?selectedLargeCategory=001&barcode=4801188331797&orderClick=LEa&Kc=#tab_content_06'
 
   chrome_options = webdriver.ChromeOptions()
   driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
   driver.get(url=URL)
-  driver.find_element(By.XPATH, '''//*[@id="neo_conbody"]/div/div[2]/div[4]/div[1]/ul/li[6]/a''').send_keys(Keys.ENTER) # 리뷰 클릭
+  # driver.find_element(By.XPATH, '''//*[@id="neo_conbody"]/div/div[2]/div[4]/div[1]/ul/li[6]/a''').send_keys(Keys.ENTER) # 리뷰 클릭 나미야
+  driver.find_element(By.XPATH, '''//*[@id="neo_conbody"]/div/div[2]/div[5]/div[1]/ul/li[6]/a''').send_keys(Keys.ENTER) # 리뷰 클릭 돈의 속성
   # df 선언
   df = pd.DataFrame(columns=['part','title','rating','text'])
-  part = '소설'
-  title = '나미야 잡화점의 기적'
+  part = '경제/경엉'
+  title = '돈의 속성'
   print('part: ', part)
   print('title: ', title)
 
@@ -49,7 +50,7 @@ try:
     page_bar = driver.find_elements(By.CSS_SELECTOR,'#kloverReviewList > div > div > a.next')
     page_bar[0].send_keys(Keys.ENTER)
 
-  df.to_csv(f"./ebook_namiya.csv", encoding='utf-8-sig')
+  df.to_csv(f"./ebook_돈의속성.csv", encoding='utf-8-sig')
 except Exception as e:
   print("!!!---예외가 발생했습니다.--- : ", e, '-----!!!!')
-  df.to_csv(f"./ebook_namiya.csv", encoding='utf-8-sig')
+  df.to_csv(f"./ebook_돈의속성.csv", encoding='utf-8-sig')
