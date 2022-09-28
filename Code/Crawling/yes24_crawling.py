@@ -17,6 +17,8 @@ try:
   driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
   driver.get(url=URL)
 
+  driver.find_element(By.XPATH, '''//*[@id="total"]/a/span''').send_keys(Keys.ENTER)
+
   df = pd.DataFrame(columns=['part','title','rating','text'])
   part = '소설'
   title = '나미야 잡화점의 기적'
