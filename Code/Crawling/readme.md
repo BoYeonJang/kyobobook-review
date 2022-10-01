@@ -2,7 +2,7 @@
 
 폴더 진입
     
-    cd venv/Script
+    cd venv/Scripts
 
 가상환경 실행
     
