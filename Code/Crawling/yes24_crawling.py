@@ -48,7 +48,7 @@ try:
         print(text)
         df = df.append({'part':part, 'title':title, 'rating':rating, 'text':text}, ignore_index=True)
         # sleep(100000)
-        sleep(2)
+        sleep(2.5)
       print("-------------next------------")
       page_bar = driver.find_elements(By.CSS_SELECTOR, f'#infoset_oneCommentList > div:nth-child(4) > div.rvCmt_sortLft > div > a:nth-child({num})')
       # pn = len(page_bar)
