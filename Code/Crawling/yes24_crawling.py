@@ -12,7 +12,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning) # concat 쓰라�
 
 
 try:
-  URL = 'http://www.yes24.com/Product/Goods/8157957'
+  URL = 'http://www.yes24.com/Product/Goods/2312211'
   # URL = 'http://www.yes24.com/Product/Goods/113416898' #test
 
   chrome_options = webdriver.ChromeOptions()
@@ -23,7 +23,7 @@ try:
 
   df = pd.DataFrame(columns=['part','title','rating','text'])
   part = '소설'
-  title = '나미야 잡화점의 기적'
+  title = '코스모스'
   print('part: ', part)
   print('title: ', title)
 
@@ -42,7 +42,8 @@ try:
         except:
           rating_xpath = driver.find_element(By.XPATH, f'''//*[@id="infoset_oneCommentList"]/div[3]/div[{idx}]/div[1]/div[1]/span''') # 별점
         text_xpath = driver.find_element(By.XPATH, f'''//*[@id="infoset_oneCommentList"]/div[3]/div[{idx}]/div[1]/div[2]/span''') # 리뷰 글
-        rating = rating_xpath.text
+        rating_str = rating_xpath.text
+        rating = rating_str[2:-1]
         text = text_xpath.text
         print(rating)
         print(text)
