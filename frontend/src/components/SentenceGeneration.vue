@@ -41,21 +41,45 @@ export default {
       result_generation: "",
       testVal: "",
       trigger: false,
+      // 여기서부터
+      min_length: 10,
+      max_length: 50,
+      top_p: 0.92,
+      top_k: 50,
+      repetition_penalty: 1.5,
+      no_repeat_ngram_size: 3,
+      temperature: 0.9,
     };
   },
   methods: {
     async api_call() {
-      // const sentence = this.$refs.prompt;
       const sentence = this.sentence_generation_data;
-      // const input = { prompt: sentence };
-      console.log(sentence);
-      await API.post("api", { gener: this.sentence_generation_data })
+      const input = {
+        prompt: sentence,
+        min_length: this.min_length,
+        max_length: this.max_length,
+        top_p: this.top_p,
+        top_k: this.top_k,
+        repetition_penalty: this.repetition_penalty,
+        no_repeat_ngram_size: this.no_repeat_ngram_size,
+        temperature: this.temperature,
+      };
+      console.log(input);
+      await API.post("api", { input: this.sentence_generation_data })
         .then(res => res.json())
         .then(data => {
           console.log("data: ", data);
-          this.result_generation = data.data.retult;
-        });
+          this.result_generation = data.retult;
+        })
+        .catch(err => console.error(err));
     },
+    // get 테스트
+    // async api_call() {
+    //   await API.get("api")
+    //     .then(res => res.json())
+    //     .then(data => console.log(data))
+    //     .catch(err => console.log(err));
+    // },
     // post 테스트용
     async loginHandler() {
       if (this.id && this.password) {
