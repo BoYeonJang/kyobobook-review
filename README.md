@@ -44,10 +44,10 @@ docker-compose up
 │   ├── Crawling/
 │   └── Analysis/
 ├── Data/
-│   ├── 데이터셋/
 │   ├── 리뷰순/
+│   ├── 모델/
 │   ├── 분야별/
-│   └── ebook/
+│   └── Top3/
 ├── docker-compose.yml
 ├── Pipfile
 └── README.md
