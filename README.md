@@ -4,25 +4,53 @@
 
 프레임워크: [Vue](https://cli.vuejs.org/)
 
+로컬 실행 방법
+
+```
+cd frontend
+```
+
+```
+npm install
+```
+
+```
+npm run serve
+```
+
+> `http://localhost:8080/`
+
 ## backend
 
 프레임워크: [Flask](https://flask.palletsprojects.com/en/2.2.x/)
+
+로컬 실행 방법
+
+```
+pipenv install && pipenv shell
+```
+
+```
+cd backend
+```
+
+```
+flask run
+```
+
+> `http://localhost:5000/`
 
 ## docker
 
 팀 프로젝트로 팀원 및 서버와 개발 환경을 쉽게 동기화하기 위해 [Docker](https://www.docker.com/)를 사용했다.
 
-```
-kyobobook-review
-```
-
-가 있는 폴더로 진입 후
+`kyobobook-review`가 있는 폴더로 진입 후
 
 ```
 docker-compose up
 ```
 
-`frontend:8080`, `backend:7000`가 실행된다.
+`frontend:80`, `backend:7000`이 실행된다.
 
 ## 폴더 구조
 
@@ -36,18 +64,23 @@ docker-compose up
 ├── frontend/
 │   ├── ...
 │   ├── src/
-│   │   ├── ...
+│   │   ├── components/
 │   │   └── App.vue
+│   ├── api.js
 │   ├── nginx.conf
 │   └── Dockerfile
 ├── Code/
-│   ├── Crawling/
-│   └── Analysis/
+│   ├── Analysis/
+│   └── Crawling/
 ├── Data/
 │   ├── 리뷰순/
 │   ├── 모델/
+│   │   └── model.pt
 │   ├── 분야별/
 │   └── Top3/
+├── nlpbook/
+│   ├── checkpoint-doccls/
+│   └── epoch=0-val_loss=0.43.ckpt
 ├── docker-compose.yml
 ├── Pipfile
 └── README.md
@@ -66,6 +99,20 @@ docker-compose up
 - **데이터 용량 문제를 대비하여 최대 60페이지 리뷰만 가져옴** ✔️
 - 데이터 크롤링 완료 ✔️
 
+---
+
+용량 문제로 인해 최소 기능 동작을 위해 리뷰가 가장 많은 책 Top3를 선정했다.
+
+1. 나미야 잡화점의 기적 - 소설
+2. 코스모스 - 교양과학
+3. 사피엔스 - 인문
+
+교보문고 + 교보ebook + yes24의 데이터를 크롤링했다.
+
+|     | 나미야 잡화점의 기적 | 코스모스 | 사피엔스 |
+| --- | -------------------- | -------- | -------- |
+| row | 3610                 | 1898     | 2137     |
+
 ## pipenv 설정
 
 Pipenv 설치
@@ -76,7 +123,13 @@ pip3 install pipenv
 pip install pipenv
 ```
 
-clone한 레포지토리 폴더로 이동 후
+clone한 레포지토리 폴더로 이동 후 가상환경 패키지 설치
+
+```
+pipenv install
+```
+
+실행
 
 ```
 pipenv shell
