@@ -1,4 +1,4 @@
-<template>
+<template :key="result_generation">
   <div>
     <div class="input-group mb-3">
       <input
@@ -13,12 +13,10 @@
         placeholder="프롬프트를 입력하세요"
       />
     </div>
-    <!-- <p class="card-text"> -->
     <div class="alert alert-info" role="alert">
       <b>생성 결과</b>
-      <p ref="generation" id="generation" v-bind="result_generation" class="mb-0"></p>
+      <p ref="generation" id="generation" class="mb-0"></p>
     </div>
-    <!-- </p> -->
     <!-- post 테스트용 -->
     <div>
       <input class="input_box" type="text" v-model="id" />
@@ -37,11 +35,11 @@ export default {
   props: {},
   data: function () {
     return {
-      sentence_generation_data: "",
       result_generation: "",
       testVal: "",
       trigger: false,
       // 여기서부터
+      prompt: "",
       min_length: 10,
       max_length: 50,
       top_p: 0.92,
@@ -53,9 +51,9 @@ export default {
   },
   methods: {
     async api_call() {
-      const sentence = this.sentence_generation_data;
+      console.log("this: ", this);
       const input = {
-        prompt: sentence,
+        prompt: this.$refs.prompt.value,
         min_length: this.min_length,
         max_length: this.max_length,
         top_p: this.top_p,
@@ -65,13 +63,15 @@ export default {
         temperature: this.temperature,
       };
       console.log(input);
-      await API.post("api", { input: this.sentence_generation_data })
+      await API.post("api", { ...input })
         .then(res => res.json())
-        .then(data => {
-          console.log("data: ", data);
-          this.result_generation = data.retult;
+        .then(body => {
+          // const reader = body.getReader();
+          console.log("body: ", body);
+          console.log("this.$refs.generation: ", this.$refs.generation);
+          this.$refs.generation.innerText = body["result"];
         })
-        .catch(err => console.error(err));
+        .catch(err => console.error("실패했습니다.", err));
     },
     // get 테스트
     // async api_call() {
@@ -80,6 +80,7 @@ export default {
     //     .then(data => console.log(data))
     //     .catch(err => console.log(err));
     // },
+
     // post 테스트용
     async loginHandler() {
       if (this.id && this.password) {
