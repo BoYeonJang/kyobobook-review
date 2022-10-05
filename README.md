@@ -90,15 +90,6 @@ docker-compose up
 
 [Selenium4](https://www.selenium.dev/)를 활용하여 [교보문고](http://www.kyobobook.co.kr/index.laf)의 2022년 8월 1일부터 2022년 8월 31일까지의 종합 월간 베스트의 각 분야별 책에 대한 리뷰데이터를 구했다.
 
-데이터 진행 사항
-
-- [x] 리뷰 크롤링
-- [x] 한 페이지 크롤링
-- [x] 페이지 넘어가는 것
-- [x] 각 분야의 상위20 책 리뷰 데이터 가져오기
-- [x] **데이터 용량 문제를 대비하여 최대 60페이지 리뷰만 가져옴**
-- [x] 데이터 크롤링 완료
-
 ---
 
 용량 문제로 인해 최소 기능 동작을 위해 리뷰가 가장 많은 책 Top3를 선정했다.
@@ -112,6 +103,34 @@ docker-compose up
 |     | 나미야 잡화점의 기적 | 코스모스 | 사피엔스 |
 | --- | -------------------- | -------- | -------- |
 | row | 3610                 | 1898     | 2137     |
+
+## 크롤링 방법
+
+`cd Code/Crawling` 폴더로 이동 후 [가상 환경 실행 방법](Code/Crawling/readme.md)
+
+교보문고
+
+```
+python kyobo-data-crawling.py
+```
+
+책 한 권만
+
+```
+python kyobo-data-crawling-one.py
+```
+
+yes24
+
+```
+python yes24_crawling.py
+```
+
+ebook
+
+```
+python ebook_crawling.py
+```
 
 ## pipenv 설정
 
@@ -153,33 +172,29 @@ exit
 pipenv --rm
 ```
 
-## 크롤링 방법
+## ToDo
 
-`cd Code/Crawling` 폴더로 이동 후 [가상 환경 실행 방법](Code/Crawling/readme.md)
+데이터 관련 크롤링
 
-교보문고
+- [x] 리뷰 크롤링
+- [x] 한 페이지 크롤링
+- [x] 페이지 넘어가는 것
+- [x] 각 분야의 상위20 책 리뷰 데이터 가져오기
+- [x] **데이터 용량 문제를 대비하여 최대 60페이지 리뷰만 가져옴**
+- [x] 데이터 크롤링 완료
 
-```
-python kyobo-data-crawling.py
-```
+모델 학습
 
-책 한 권만
+- [x] 데이터 y columns으로 긍정:1, 부정:0 나누기
+- [x] 모델 학습을 위한 columns명 및 확장자 변경
+- [ ] 도서 분류 모델
+- [x] 리뷰 문장 생성 모델
 
-```
-python kyobo-data-crawling-one.py
-```
+frontend, backend
 
-yes24
-
-```
-python yes24_crawling.py
-```
-
-ebook
-
-```
-python ebook_crawling.py
-```
+- [x] 목업 화면 생성
+- [ ] Vue UI 프레임워크 사용 css 꾸미기
+- [x] API 통신
 
 ## 서비스 아키텍처
 
