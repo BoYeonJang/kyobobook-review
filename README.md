@@ -155,16 +155,30 @@ pipenv --rm
 
 ## 크롤링 방법
 
-`{kyobo-data-crawling}.py`가 위치한 폴더로 이동 후
+`cd Code/Crawling` 폴더로 이동 후 [가상 환경 실행 방법](Code/Crawling/readme.md)
+
+교보문고
 
 ```
 python kyobo-data-crawling.py
 ```
 
-책 한 권만 이라면
+책 한 권만
 
 ```
 python kyobo-data-crawling-one.py
+```
+
+yes24
+
+```
+python yes24_crawling.py
+```
+
+ebook
+
+```
+python ebook_crawling.py
 ```
 
 ## 서비스 아키텍처
