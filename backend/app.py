@@ -3,7 +3,8 @@ from flask_cors import CORS
 import torch
 from inference import *
 
-model = torch.load('../Data/모델/model.pt')
+model = torch.load('../Data/모델/사피엔스/Sapiens.pt')
+model.eval()
 
 # Flask 객체 인스턴스 생성
 app = Flask(__name__)
@@ -41,6 +42,7 @@ def api():
 
   # return inference_fn("이건테스트입니다.ㄴ아너아ㅣㅇ너리ㅏㅁㄴ;ㅓ")
 
+# post 테스트 용 코드
 @app.route('/predict', methods=['POST'])
 def predict():
   if request.method == 'POST':

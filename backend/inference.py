@@ -14,7 +14,8 @@ tokenizer = PreTrainedTokenizerFast.from_pretrained(
   eos_token="</s>",
 )
 
-model = torch.load('../Data/모델/model.pt')
+model = torch.load('../Data/모델/사피엔스/Sapiens.pt')
+model.eval()
 
 model = GPT2LMHeadModel.from_pretrained(
   args.pretrained_model_name,
