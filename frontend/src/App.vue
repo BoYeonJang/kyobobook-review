@@ -1,6 +1,4 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-  <!-- <HelloWorld msg="안녕하세요. 오늘은 어떤 책을 " /> -->
   <HelloWorld />
 </template>
 
