@@ -10,7 +10,6 @@
   "dependencies": {
     "core-js": "^3.8.3",
     "eslint-plugin-vue": "^9.5.1",
-    "quasar": "^2.9.2",
     "vue": "^3.2.13"
   },
   "devDependencies": {
