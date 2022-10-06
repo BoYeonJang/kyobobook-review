@@ -5,7 +5,7 @@ from transformers import PreTrainedTokenizerFast, GPT2Config, GPT2LMHeadModel
 # 인퍼런스 설정
 args = GenerationDeployArguments(
   pretrained_model_name="skt/kogpt2-base-v2",
-  downstream_model_dir="../Data/모델/사피엔스/nlpbook/checkpoint-doccls",
+  downstream_model_dir="../Data/모델/사피엔스/nlpbook/checkpoint-generation",
 )
 
 # 토크나이저 로드
