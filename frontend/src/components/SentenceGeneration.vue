@@ -41,12 +41,12 @@ export default {
       // 여기서부터
       prompt: "",
       min_length: 10,
-      max_length: 50,
-      top_p: 0.92,
-      top_k: 50,
-      repetition_penalty: 1.5,
-      no_repeat_ngram_size: 3,
-      temperature: 0.9,
+      max_length: 30,
+      top_p: 1.0,
+      top_k: 1,
+      repetition_penalty: 1.0,
+      no_repeat_ngram_size: 0,
+      temperature: 1.0,
     };
   },
   methods: {
