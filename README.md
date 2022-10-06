@@ -75,12 +75,11 @@ docker-compose up
 ├── Data/
 │   ├── 리뷰순/
 │   ├── 모델/
-│   │   └── model.pt
+│   │   ├── 나미야 잡화점의 기적/
+│   │   ├── 사피엔스/
+│   │   └── 코스모스/
 │   ├── 분야별/
 │   └── Top3/
-├── nlpbook/
-│   ├── checkpoint-doccls/
-│   └── epoch=0-val_loss=0.43.ckpt
 ├── docker-compose.yml
 ├── Pipfile
 └── README.md
