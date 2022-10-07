@@ -43,7 +43,7 @@ def api():
 def classification():
     query = request.get_json()
     print("query: ", query)
-    output_data = inference_fn(query["prompt"])
+    output_data = inference_fn2(query["prompt"])
     response = jsonify(output_data)
     print("response: ", response)
     print("output_data: ", output_data)

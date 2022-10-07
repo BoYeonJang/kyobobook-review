@@ -41,7 +41,7 @@ model.eval()
 # 인퍼런스 설정
 
 
-def inference_fn(sentence):
+def inference_fn2(sentence):
     inputs = tokenizer(
         [sentence],
         max_length=args.max_seq_length,
