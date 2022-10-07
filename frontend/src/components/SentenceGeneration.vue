@@ -7,7 +7,6 @@
         aria-describedby="basic-addon3"
         ref="prompt"
         id="prompt"
-        v-model="sentence_generation_data"
         @keypress.enter="api_call"
         name="input"
         placeholder="프롬프트를 입력하세요"
