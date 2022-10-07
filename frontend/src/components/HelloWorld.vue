@@ -12,7 +12,7 @@
     />
     <div class="alert alert-info" role="alert">
       <h5 ref="prediction" class="alert-heading"></h5>
-      <p ref="sentence" class="mb-0"></p>
+      <!-- <p ref="sentence" class="mb-0"></p> -->
     </div>
     <DocumentClassification />
     <p>
@@ -39,7 +39,7 @@ export default {
     return {
       prompt: "",
       prediction: "",
-      sentence: "",
+      // sentence: "",
     };
   },
   methods: {
@@ -56,7 +56,7 @@ export default {
           // console.log("this.$refs.generation: ", this.$refs.generation);
           this.$refs.prompt.innerText = body["result"];
           this.$refs.prediction.innerText = body["prediction"];
-          this.$refs.sentence.innerText = body["sentence"];
+          // this.$refs.sentence.innerText = body["sentence"];
         })
         .catch(err => console.error("실패했습니다.", err));
     },
