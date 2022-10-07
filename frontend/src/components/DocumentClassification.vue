@@ -31,7 +31,7 @@
 // import * as API from "../api.js";
 
 export default {
-  name: "PairClassification",
+  name: "DocumentClassification",
   props: {},
   data: function () {
     return {};

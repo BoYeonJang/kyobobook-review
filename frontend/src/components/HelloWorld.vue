@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>안녕하세요.<br />오늘은 어떤 책을 읽고 싶은지 생각을 적어주세요.</h1>
     <input class="main_search" @keypress.enter="pairHandler" />
-    <PairClassification v-show="pairShow" />
+    <DocumentClassification v-show="pairShow" />
     <p>
       <b>부자 아빠 가난한 아빠</b>에 대해 더 궁금한 게 있으시다면 입력해주세요.<br />기존 고객
       리뷰를 요약해서 알려드립니다.
@@ -12,14 +12,14 @@
 </template>
 
 <script>
-import PairClassification from "./PairClassification";
+import DocumentClassification from "./DocumentClassification";
 import SentenceGeneration from "./SentenceGeneration.vue";
 
 export default {
   name: "HelloWorld",
   props: {},
   components: {
-    PairClassification,
+    DocumentClassification,
     SentenceGeneration,
   },
   data: function () {
