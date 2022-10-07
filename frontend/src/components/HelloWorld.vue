@@ -1,8 +1,20 @@
 <template>
   <div class="hello">
     <h1>안녕하세요.<br />오늘은 어떤 책을 읽고 싶은지 생각을 적어주세요.</h1>
-    <input class="main_search" @keypress.enter="pairHandler" />
-    <DocumentClassification v-show="pairShow" />
+    <input
+      type="text"
+      class="review_search"
+      aria-describedby="basic-addon3"
+      ref="prompt"
+      @keypress.enter="api_call"
+      name="input"
+      placeholder="프롬프트를 입력하세요"
+    />
+    <div class="alert alert-info" role="alert">
+      <h5 ref="prediction" class="alert-heading"></h5>
+      <p ref="sentence" class="mb-0"></p>
+    </div>
+    <DocumentClassification />
     <p>
       <b>부자 아빠 가난한 아빠</b>에 대해 더 궁금한 게 있으시다면 입력해주세요.<br />기존 고객
       리뷰를 요약해서 알려드립니다.
@@ -14,6 +26,7 @@
 <script>
 import DocumentClassification from "./DocumentClassification";
 import SentenceGeneration from "./SentenceGeneration.vue";
+import * as API from "../api.js";
 
 export default {
   name: "HelloWorld",
@@ -23,11 +36,29 @@ export default {
     SentenceGeneration,
   },
   data: function () {
-    return { pairShow: false };
+    return {
+      prompt: "",
+      prediction: "",
+      sentence: "",
+    };
   },
   methods: {
-    pairHandler() {
-      this.pairShow = !this.pairShow;
+    async api_call() {
+      console.log("this: ", this);
+      const input = {
+        prompt: this.$refs.prompt.value,
+      };
+      console.log(input);
+      await API.post("classification", { ...input })
+        .then(res => res.json())
+        .then(body => {
+          console.log("body: ", body);
+          // console.log("this.$refs.generation: ", this.$refs.generation);
+          this.$refs.prompt.innerText = body["result"];
+          this.$refs.prediction.innerText = body["prediction"];
+          this.$refs.sentence.innerText = body["sentence"];
+        })
+        .catch(err => console.error("실패했습니다.", err));
     },
   },
 };
