@@ -14,12 +14,15 @@ tokenizer = PreTrainedTokenizerFast.from_pretrained(
     eos_token="</s>",
 )
 
+# 모델 로드
 model = torch.load('../Data/모델/사피엔스/Sapiens.pt')
 model.eval()
 
 model = GPT2LMHeadModel.from_pretrained(
     args.pretrained_model_name,
 )
+
+# 인퍼런스 설정
 
 
 def inference_fn(
