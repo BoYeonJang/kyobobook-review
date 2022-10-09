@@ -1,4 +1,4 @@
-<template :key="result_generation">
+<template>
   <div>
     <div class="input-group mb-3">
       <input
@@ -16,12 +16,12 @@
       <b>생성 결과</b>
       <p ref="generation" id="generation" class="mb-0"></p>
     </div>
-    <!-- post 테스트용 -->
-    <div>
+    <!-- post 테스트용 로그인 -->
+    <!-- <div>
       <input class="input_box" type="text" v-model="id" />
       <input class="input_box" type="password" v-model="password" />
       <button id="loginBtn" @click="loginHandler">로그인</button>
-    </div>
+    </div> -->
     <!-- post 테스트용 -->
   </div>
 </template>
@@ -34,9 +34,8 @@ export default {
   props: {},
   data: function () {
     return {
-      result_generation: "",
-      testVal: "",
-      trigger: false,
+      // testVal: "",
+      // trigger: false,
       // 여기서부터
       prompt: "",
       min_length: 10,
@@ -81,23 +80,23 @@ export default {
     // },
 
     // post 테스트용
-    async loginHandler() {
-      if (this.id && this.password) {
-        alert("ID : " + this.id + "\nPassword : " + this.password);
-        await API.post("predict", { id: this.id, pass: this.password })
-          .then(res => res.json())
-          .then(data => {
-            console.log(data);
-            console.log("아이디: ", this.id);
-            console.log("비밀번호: ", this.password);
-            this.testVal = data.data.id;
-            this.trigger = true;
-          })
-          .catch(err => console.error(err));
-      } else {
-        alert("아이디나 비밀번호를 확인하세요.");
-      }
-    },
+    // async loginHandler() {
+    //   if (this.id && this.password) {
+    //     alert("ID : " + this.id + "\nPassword : " + this.password);
+    //     await API.post("predict", { id: this.id, pass: this.password })
+    //       .then(res => res.json())
+    //       .then(data => {
+    //         console.log(data);
+    //         console.log("아이디: ", this.id);
+    //         console.log("비밀번호: ", this.password);
+    //         this.testVal = data.data.id;
+    //         this.trigger = true;
+    //       })
+    //       .catch(err => console.error(err));
+    //   } else {
+    //     alert("아이디나 비밀번호를 확인하세요.");
+    //   }
+    // },
   },
 };
 </script>
