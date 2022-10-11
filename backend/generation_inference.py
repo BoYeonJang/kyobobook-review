@@ -27,13 +27,13 @@ model = GPT2LMHeadModel.from_pretrained(
 
 def inference_fn(
     prompt,
-    min_length=10,
-    max_length=20,
-    top_p=1.0,
-    top_k=50,
-    repetition_penalty=1.0,
-    no_repeat_ngram_size=0,
-    temperature=1.0
+    min_length=20,
+    max_length=30,
+    top_p=0.8,
+    top_k=30,
+    repetition_penalty=1.5,
+    no_repeat_ngram_size=3,
+    temperature=0.9
 ):
     try:
         # generated_sentence = """성공입니다."""
