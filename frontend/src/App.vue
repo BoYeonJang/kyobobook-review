@@ -17,7 +17,7 @@ export default {
 </script>
 <style>
 body {
-  background: linear-gradient(to right, #2af598, #009efd);
+  background: linear-gradient(to right, #67b26f, #4ca2cd);
   width: 100%;
   height: 100%;
 }
