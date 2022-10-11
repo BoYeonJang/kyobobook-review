@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="font-IBM text-center text-black bg-gradient-to-r from-[#6ADE64] to-[#36777C] w-screen h-full"
-  >
+  <div class="app">
     <HelloWorld />
   </div>
 </template>
@@ -19,5 +17,6 @@ export default {
 </script>
 <style>
 #app {
+  text-align: center;
 }
 </style>
