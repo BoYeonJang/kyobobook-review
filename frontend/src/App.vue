@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div>
     <HelloWorld />
   </div>
 </template>
@@ -16,6 +16,11 @@ export default {
 };
 </script>
 <style>
+body {
+  background: linear-gradient(to right, #2af598, #009efd);
+  width: 100%;
+  height: 100%;
+}
 #app {
   text-align: center;
 }
