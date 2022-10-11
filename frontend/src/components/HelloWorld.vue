@@ -139,6 +139,7 @@ export default {
   text-decoration-line: underline;
   text-decoration-color: #6366f1;
 }
+/* 검색바 style 여기 시작 */
 .search_bar {
   border: solid;
   width: fit-content;
@@ -149,6 +150,10 @@ export default {
 }
 .search_svg {
   display: flex;
+}
+.search_img {
+  width: 1.7rem;
+  padding: 0 0.5rem 0 0.5rem;
 }
 .think_search {
   padding: 1rem 1rem 1rem 0px;
@@ -166,6 +171,7 @@ input::placeholder {
   font-style: italic;
   font-weight: 700;
 }
+/* 검색바 style 여기 까지 */
 .mt-2 {
   margin-top: 2rem;
 }
@@ -177,9 +183,5 @@ input::placeholder {
 }
 .text-xl {
   font-size: 1.25rem;
-}
-.search_img {
-  width: 1.7rem;
-  padding: 0 0.5rem 0 0.5rem;
 }
 </style>

@@ -1,44 +1,50 @@
 <template v-if="generationTrigger">
-  <div>
-    <div class="text-center pl-96">
-      <label
-        for="default-search"
-        class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300"
-        >Search</label
-      >
-      <div class="relative mt-10 content-center">
-        <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-          <svg
-            aria-hidden="true"
-            class="w-5 h-5 text-gray-500 dark:text-gray-400"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            ></path>
-          </svg>
-        </div>
+  <div class="font-IBM">
+    <div>
+      <p>
+        <span>{{ title }}</span
+        >의 전체적인 워드 클라우드입니다.
+      </p>
+      <img
+        alt="Word Cloud"
+        src="../assets/WordCloud/코스모스(3차_불용어_사전_반영).png"
+        class="word_cloud_size"
+      />
+    </div>
+    <div>
+      <p>
+        <span>부자 아빠 가난한 아빠</span>에 대해 더 궁금한 게 있으시다면 입력해주세요.<br />기존
+        고객 리뷰를 요약해서 알려드립니다.
+      </p>
+    </div>
+    <!-- search bar -->
+    <div class="search_bar">
+      <div class="search_svg">
+        <svg
+          focusable="false"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          class="search_img"
+        >
+          <path
+            d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+          ></path>
+        </svg>
         <input
           type="text"
-          class="block p-4 pl-10 w-96 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          aria-describedby="basic-addon3"
+          class="generation_search"
           ref="prompt"
-          id="prompt"
           @keypress.enter="api_call"
           name="input"
-          placeholder="프롬프트를 입력하세요"
+          placeholder="한줄평에 대해 알 수 있어요."
         />
       </div>
     </div>
-    <div class="alert alert-info" role="alert">
-      <b>생성 결과</b>
-      <p ref="generation" id="generation" class="mb-0"></p>
+    <div>
+      <p>
+        <span>한줄평: </span>
+        <span ref="generation" id="generation" class="mb-0"></span>
+      </p>
     </div>
     <!-- post 테스트용 로그인 -->
     <!-- <div>
@@ -55,20 +61,22 @@ import * as API from "../api.js";
 
 export default {
   name: "SentenceGeneration",
-  props: {},
+  props: {
+    title: String,
+  },
   data: function () {
     return {
       // testVal: "",
       // trigger: false,
-      // 여기서부터
+      // 문장 생성 data
       prompt: "",
-      min_length: 10,
+      min_length: 20,
       max_length: 30,
-      top_p: 1.0,
-      top_k: 1,
-      repetition_penalty: 1.0,
-      no_repeat_ngram_size: 0,
-      temperature: 1.0,
+      top_p: 0.8,
+      top_k: 30,
+      repetition_penalty: 1.5,
+      no_repeat_ngram_size: 3,
+      temperature: 0.9,
       generationTrigger: false,
     };
   },
@@ -128,4 +136,44 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+.font-IBM {
+  font-family: "IBM Plex Sans KR", sans-serif;
+}
+.word_cloud_size {
+  width: 30rem;
+}
+/* 검색바 style 여기 시작 */
+.search_bar {
+  border: solid;
+  width: fit-content;
+  border-radius: 1rem;
+  display: inline-block;
+  margin: 3rem;
+  background: white;
+}
+.search_svg {
+  display: flex;
+}
+.search_img {
+  width: 1.7rem;
+  padding: 0 0.5rem 0 0.5rem;
+}
+.generation_search {
+  padding: 1rem 1rem 1rem 0px;
+  border-radius: 1rem;
+  width: 30rem;
+  font-size: 1rem;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  border-width: 0px;
+}
+input:focus {
+  outline: none;
+}
+input::placeholder {
+  opacity: 0.5;
+  font-style: italic;
+  font-weight: 700;
+}
+/* 검색바 style 여기 까지 */
+</style>
