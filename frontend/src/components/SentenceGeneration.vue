@@ -1,21 +1,19 @@
 <template v-if="generationTrigger">
   <div class="font-IBM">
     <div>
-      <p>
-        <span>{{ title }}</span
+      <div>
+        <span class="decoration-sky font-bold">{{ title }}</span
         >의 전체적인 워드 클라우드입니다.
-      </p>
+      </div>
       <img
         alt="Word Cloud"
         src="../assets/WordCloud/코스모스(3차_불용어_사전_반영).png"
-        class="word_cloud_size"
+        class="word_cloud"
       />
     </div>
     <div>
-      <p>
-        <span>부자 아빠 가난한 아빠</span>에 대해 더 궁금한 게 있으시다면 입력해주세요.<br />기존
-        고객 리뷰를 요약해서 알려드립니다.
-      </p>
+      <span class="decoration-sky font-bold">{{ title }}</span
+      >에 대해 더 궁금한 게 있으시다면 입력해주세요.<br />기존 고객 리뷰를 요약해서 알려드립니다.
     </div>
     <!-- search bar -->
     <div class="search_bar">
@@ -41,10 +39,9 @@
       </div>
     </div>
     <div>
-      <p>
-        <span>한줄평: </span>
-        <span ref="generation" id="generation" class="mb-0"></span>
-      </p>
+      <span class="font-bold">한줄평</span>
+      <br />
+      <span ref="generation" id="generation" class="mb-0"></span>
     </div>
     <!-- post 테스트용 로그인 -->
     <!-- <div>
@@ -140,8 +137,16 @@ export default {
 .font-IBM {
   font-family: "IBM Plex Sans KR", sans-serif;
 }
-.word_cloud_size {
+.word_cloud {
   width: 30rem;
+  margin: 2rem;
+}
+.decoration-sky {
+  text-decoration-line: underline;
+  text-decoration-color: #0ea5e9;
+}
+.font-bold {
+  font-weight: 700;
 }
 /* 검색바 style 여기 시작 */
 .search_bar {
