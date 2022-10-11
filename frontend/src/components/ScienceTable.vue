@@ -7,7 +7,7 @@
         </tr>
         <tr>
           <a>
-            <td><span v-html="item.title" @click="ClickWord" title="parentText"></span></td>
+            <td><span v-html="item.title" @click="ClickWord"></span></td>
           </a>
         </tr>
         <tr>
@@ -24,7 +24,7 @@
         </tr>
       </table>
     </div>
-    <SentenceGeneration v-if="GenerationTrigger" />
+    <SentenceGeneration v-if="GenerationTrigger" title="코스모스" />
   </div>
 </template>
 <script>

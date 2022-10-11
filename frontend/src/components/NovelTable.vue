@@ -1,33 +1,44 @@
 <template>
   <div>
-    <table v-for="item in items" :key="item.title">
-      <tr>
-        <td rowspan="6"><img v-bind:src="item.image" /></td>
-      </tr>
-      <tr>
-        <td><span v-html="item.title"></span></td>
-      </tr>
-      <tr>
-        <td><span v-html="item.pubDate"></span></td>
-      </tr>
-      <tr>
-        <td><span v-html="item.writer"></span></td>
-      </tr>
-      <tr>
-        <td><span v-html="item.publisher"></span></td>
-      </tr>
-      <tr>
-        <td><span v-html="item.userRating"></span></td>
-      </tr>
-    </table>
+    <div>
+      <table v-for="item in items" :key="item.title">
+        <tr>
+          <td rowspan="6"><img v-bind:src="item.image" /></td>
+        </tr>
+        <tr>
+          <a>
+            <td><span v-html="item.title" @click="ClickWord"></span></td>
+          </a>
+        </tr>
+        <tr>
+          <td><span v-html="item.pubDate"></span></td>
+        </tr>
+        <tr>
+          <td><span v-html="item.writer"></span></td>
+        </tr>
+        <tr>
+          <td><span v-html="item.publisher"></span></td>
+        </tr>
+        <tr>
+          <td><span v-html="item.userRating"></span></td>
+        </tr>
+      </table>
+    </div>
+    <SentenceGeneration v-if="GenerationTrigger" title="나미야 잡화점의 기적" />
   </div>
 </template>
 <script>
+import SentenceGeneration from "./SentenceGeneration.vue";
+
 export default {
   name: "NovelTable",
   props: {},
+  components: {
+    SentenceGeneration,
+  },
   data: function () {
     return {
+      GenerationTrigger: false,
       items: [
         {
           title: "<strong>나미야 잡화점의 기적</strong>",
@@ -64,6 +75,11 @@ export default {
       ],
     };
   },
+  methods: {
+    async ClickWord() {
+      this.GenerationTrigger = true;
+    },
+  },
 };
 </script>
 <style scoped>
@@ -72,7 +88,8 @@ table {
   text-align: left;
   border: 1px solid #ccc;
 }
-.float-left {
-  float: left;
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 </style>
