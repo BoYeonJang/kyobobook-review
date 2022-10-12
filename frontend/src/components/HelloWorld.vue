@@ -147,6 +147,7 @@ export default {
   display: inline-block;
   margin: 3rem;
   background: white;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 }
 .search_svg {
   display: flex;
@@ -160,7 +161,6 @@ export default {
   border-radius: 1rem;
   width: 30rem;
   font-size: 1rem;
-  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   border-width: 0px;
 }
 input:focus {
