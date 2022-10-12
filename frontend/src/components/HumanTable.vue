@@ -128,7 +128,7 @@ img {
 }
 .table_card {
   display: inline-flex;
-  border: solid;
+  border: 0px solid;
   border-radius: 1rem;
   padding: 1rem;
   margin: 3rem 0 3rem 0;

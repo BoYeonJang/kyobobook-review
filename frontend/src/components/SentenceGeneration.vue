@@ -166,7 +166,7 @@ export default {
 }
 /* 검색바 style 여기 시작 */
 .search_bar {
-  border: solid;
+  border: 0px solid;
   width: fit-content;
   border-radius: 1rem;
   display: inline-block;

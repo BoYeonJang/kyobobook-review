@@ -34,7 +34,7 @@
       </div>
     </div>
     <!-- table -->
-    <div v-if="ClassificationTrigger" class="text-xl">
+    <div v-if="ClassificationTrigger" class="text-xl" id="bestseller_table">
       <span class="decoration-indigo font-bold">{{ this.sentence }}</span
       >에 어울리는 분야는 <span class="decoration-indigo font-bold">{{ this.prediction }}</span
       >입니다.
@@ -138,7 +138,7 @@ export default {
 }
 /* 검색바 style 여기 시작 */
 .search_bar {
-  border: solid;
+  border: 0px solid;
   width: fit-content;
   border-radius: 1rem;
   display: inline-block;
