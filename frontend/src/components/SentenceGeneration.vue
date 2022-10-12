@@ -5,11 +5,27 @@
         <span class="decoration-sky font-bold">{{ title }}</span
         >의 전체적인 워드 클라우드입니다.
       </div>
-      <img
-        alt="Word Cloud"
-        src="../assets/WordCloud/코스모스(3차_불용어_사전_반영).png"
-        class="word_cloud"
-      />
+      <div v-if="title == '코스모스'">
+        <img
+          alt="Word Cloud"
+          src="../assets/WordCloud/코스모스(3차_불용어_사전_반영).png"
+          class="word_cloud"
+        />
+      </div>
+      <div v-else-if="title == '사피엔스'">
+        <img
+          alt="Word Cloud"
+          src="../assets/WordCloud/사피엔스(3차_불용어_사전_반영).png"
+          class="word_cloud"
+        />
+      </div>
+      <div v-else-if="title == '나미야 잡화점의 기적'">
+        <img
+          alt="Word Cloud"
+          src="../assets/WordCloud/나미야_잡화점의_기적(3차_불용어_사전_반영).png"
+          class="word_cloud"
+        />
+      </div>
     </div>
     <div>
       <span class="decoration-sky font-bold">{{ title }}</span
