@@ -49,13 +49,11 @@
       <div v-else-if="this.prediction == '소설'">
         <NovelTable />
       </div>
-      <!-- <SentenceGeneration /> -->
     </div>
   </div>
 </template>
 
 <script>
-// import SentenceGeneration from "./SentenceGeneration.vue";
 import ScienceTable from "./ScienceTable.vue";
 import HumanTable from "./HumanTable.vue";
 import NovelTable from "./NovelTable.vue";
@@ -65,7 +63,6 @@ export default {
   name: "HelloWorld",
   props: {},
   components: {
-    // SentenceGeneration,
     ScienceTable,
     HumanTable,
     NovelTable,
