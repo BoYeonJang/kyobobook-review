@@ -131,7 +131,7 @@ img {
   border: solid;
   border-radius: 1rem;
   padding: 1rem;
-  margin-top: 3rem;
+  margin: 3rem 0 3rem 0;
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   background-color: rgba(255, 255, 255, 0.5);
 }
