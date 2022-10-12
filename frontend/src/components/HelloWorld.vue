@@ -1,7 +1,7 @@
 <template>
-  <div class="font-IBM downUp">
+  <div class="font-NotoSans downUp">
     <!-- main -->
-    <div class="font-Myung hello">
+    <div class="hello">
       <div class="mt-13">
         <span>안녕하세요.</span>
       </div>
@@ -102,11 +102,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.font-Myung {
-  font-family: "Song Myung", serif;
-}
-.font-IBM {
-  font-family: "IBM Plex Sans KR", sans-serif;
+.font-NotoSans {
+  font-family: "Noto Sans KR", sans-serif;
 }
 /* 아래에서 위로 애니메이션 여기 시작 */
 @keyframes fadeInUp {

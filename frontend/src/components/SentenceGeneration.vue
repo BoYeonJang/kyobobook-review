@@ -1,5 +1,5 @@
 <template v-if="generationTrigger">
-  <div class="font-IBM">
+  <div class="font-NotoSans">
     <div>
       <div>
         <span class="decoration-sky font-bold">{{ title }}</span
@@ -150,8 +150,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.font-IBM {
-  font-family: "IBM Plex Sans KR", sans-serif;
+.font-NotoSans {
+  font-family: "Noto Sans KR", sans-serif;
 }
 .word_cloud {
   width: 30rem;
