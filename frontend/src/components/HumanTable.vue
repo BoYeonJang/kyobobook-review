@@ -1,28 +1,56 @@
 <template>
   <div>
-    <div>
-      <table v-for="item in items" :key="item.title">
-        <tr>
-          <td rowspan="6"><img v-bind:src="item.image" /></td>
-        </tr>
-        <tr>
-          <a>
-            <td><span v-html="item.title" @click="ClickWord"></span></td>
-          </a>
-        </tr>
-        <tr>
-          <td><span v-html="item.pubDate"></span></td>
-        </tr>
-        <tr>
-          <td><span v-html="item.writer"></span></td>
-        </tr>
-        <tr>
-          <td><span v-html="item.publisher"></span></td>
-        </tr>
-        <tr>
-          <td><span v-html="item.userRating"></span></td>
-        </tr>
-      </table>
+    <div class="inline-flex mt-12 table_card">
+      <!-- table 좌측 -->
+      <div class="float-left mr-20">
+        <table v-for="item in left_items" :key="item.title">
+          <tr>
+            <td rowspan="6"><img v-bind:src="item.image" /></td>
+          </tr>
+          <tr>
+            <a>
+              <td><span v-html="item.title" @click="ClickWord"></span></td>
+            </a>
+          </tr>
+          <tr>
+            <td><span v-html="item.pubDate"></span></td>
+          </tr>
+          <tr>
+            <td><span v-html="item.writer"></span></td>
+          </tr>
+          <tr>
+            <td><span v-html="item.publisher"></span></td>
+          </tr>
+          <tr>
+            <td><span v-html="item.userRating"></span></td>
+          </tr>
+        </table>
+      </div>
+      <!-- table 우측 -->
+      <div>
+        <table v-for="item in right_items" :key="item.title">
+          <tr>
+            <td rowspan="6"><img v-bind:src="item.image" /></td>
+          </tr>
+          <tr>
+            <a>
+              <td><span v-html="item.title" @click="ClickWord"></span></td>
+            </a>
+          </tr>
+          <tr>
+            <td><span v-html="item.pubDate"></span></td>
+          </tr>
+          <tr>
+            <td><span v-html="item.writer"></span></td>
+          </tr>
+          <tr>
+            <td><span v-html="item.publisher"></span></td>
+          </tr>
+          <tr>
+            <td><span v-html="item.userRating"></span></td>
+          </tr>
+        </table>
+      </div>
     </div>
     <SentenceGeneration v-if="GenerationTrigger" title="사피엔스" />
   </div>
@@ -39,7 +67,7 @@ export default {
   data: function () {
     return {
       GenerationTrigger: false,
-      items: [
+      left_items: [
         {
           title: "<strong>사피엔스</strong>",
           image: "https://contents.kyobobook.co.kr/sih/fit-in/142x0/pdt/9788934972464.jpg",
@@ -56,6 +84,8 @@ export default {
           publisher: "어크로스",
           userRating: "9.59",
         },
+      ],
+      right_items: [
         {
           title: "<strong>공정하다는 착각</strong>",
           image: "https://contents.kyobobook.co.kr/sih/fit-in/142x0/pdt/9791164136452.jpg",
@@ -86,10 +116,29 @@ export default {
 table {
   font-size: 1.25rem;
   text-align: left;
-  border: 1px solid #ccc;
 }
 a:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+img {
+  width: 7rem;
+  height: 11rem;
+  padding-right: 1rem;
+}
+.table_card {
+  display: inline-flex;
+  border: solid;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-top: 3rem;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.float-left {
+  float: left;
+}
+.mr-20 {
+  margin-right: 5rem;
 }
 </style>
