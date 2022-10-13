@@ -203,7 +203,7 @@ frontend, backend
 발표
 
 - [x] 발표 흐름 구성
-- [ ] PPT 자료 만들기
+- [x] PPT 자료 만들기
 
 목표
 
