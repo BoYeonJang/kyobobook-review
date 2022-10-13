@@ -2,5 +2,3 @@
 .DS_Store
 # 체크포인트 폴더
 Data/모델/
-# 모델
-model.pt
