@@ -2,7 +2,9 @@
   <div>
     <!-- logo -->
     <div class="logo">
-      <span class="font-bold text-xl">A<span class="signature-color">i</span>Letter</span>
+      <button @click="refresh">
+        <span class="font-bold text-xl">A<span class="signature-color">i</span>Letter</span>
+      </button>
     </div>
   </div>
 </template>
@@ -11,6 +13,11 @@
 export default {
   name: "LogoBar",
   props: {},
+  methods: {
+    refresh() {
+      window.location.reload();
+    },
+  },
 };
 </script>
 
@@ -19,6 +26,11 @@ export default {
 .logo {
   text-align: left;
   margin: 2rem 0 0 2rem;
+}
+button {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
 }
 .signature-color {
   color: rgb(146, 208, 80);
