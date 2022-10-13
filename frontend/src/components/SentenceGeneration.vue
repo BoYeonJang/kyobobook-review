@@ -241,6 +241,7 @@ button {
   outline: 0;
   cursor: pointer;
   font-size: 2rem;
+  background-color: rgb(244, 244, 244);
 }
 .word-cloud-location {
   position: relative;
