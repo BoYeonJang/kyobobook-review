@@ -1,6 +1,9 @@
 <template v-if="generationTrigger">
-  <div class="font-NotoSans">
-    <div>
+  <div class="font-NotoSans word-cloud-location">
+    <div class="word-cloud-card-top">
+      <button @click="$emit('close-modal')">&times;</button>
+    </div>
+    <div class="word-cloud-card-bottom">
       <div>
         <span class="decoration-sky font-bold">{{ title }}</span
         >의 전체적인 워드 클라우드입니다.
@@ -198,4 +201,48 @@ input::placeholder {
   font-weight: 700;
 }
 /* 검색바 style 여기 까지 */
+/* 워드 클라우드 카드 여기 시작 */
+/* .word-cloud-card {
+  border: 0px solid;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 3rem 0 3rem 0;
+  width: 65rem;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  background-color: rgb(244, 244, 244);
+  display: inline-block;
+} */
+.word-cloud-card-top {
+  border: 0px solid;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  padding: 1rem;
+  margin: 3rem 0 0 0;
+  width: 65rem;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  background-color: rgb(244, 244, 244);
+  display: inline-block;
+}
+.word-cloud-card-bottom {
+  border: 0px solid;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  padding: 1rem;
+  margin: 0 0 3rem 0;
+  width: 65rem;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  background-color: rgb(244, 244, 244);
+  display: inline-block;
+}
+/* 워드 클라우드 카드 여기 까지 */
+button {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  font-size: 2rem;
+}
+.word-cloud-location {
+  position: relative;
+  bottom: 31.5rem;
+}
 </style>

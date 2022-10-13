@@ -52,7 +52,12 @@
         </table>
       </div>
     </div>
-    <SentenceGeneration v-if="GenerationTrigger" title="나미야 잡화점의 기적" />
+    <!-- <SentenceGeneration v-if="GenerationTrigger" title="나미야 잡화점의 기적" /> -->
+    <SentenceGeneration
+      v-show="GenerationTrigger"
+      title="나미야 잡화점의 기적"
+      @close-modal="GenerationTrigger = false"
+    />
   </div>
 </template>
 <script>

@@ -52,7 +52,12 @@
         </table>
       </div>
     </div>
-    <SentenceGeneration v-if="GenerationTrigger" title="코스모스" />
+    <!-- <SentenceGeneration v-if="GenerationTrigger" title="코스모스" /> -->
+    <SentenceGeneration
+      v-show="GenerationTrigger"
+      title="코스모스"
+      @close-modal="GenerationTrigger = false"
+    />
   </div>
 </template>
 <script>

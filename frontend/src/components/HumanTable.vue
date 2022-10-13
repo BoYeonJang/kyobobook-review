@@ -52,7 +52,12 @@
         </table>
       </div>
     </div>
-    <SentenceGeneration v-if="GenerationTrigger" title="사피엔스" />
+    <!-- <SentenceGeneration v-if="GenerationTrigger" title="사피엔스" /> -->
+    <SentenceGeneration
+      v-show="GenerationTrigger"
+      title="사피엔스"
+      @close-modal="GenerationTrigger = false"
+    />
   </div>
 </template>
 <script>
@@ -107,7 +112,8 @@ export default {
   },
   methods: {
     async ClickWord() {
-      this.GenerationTrigger = true;
+      // this.GenerationTrigger = true;
+      this.GenerationTrigger = !this.GenerationTrigger;
     },
   },
 };
