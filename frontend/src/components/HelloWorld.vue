@@ -7,7 +7,7 @@
       </div>
       <div class="mt-2">
         <span>오늘은 어떤 책을 읽고 싶은지 </span>
-        <span class="decoration-orange font-bold">당신의 생각</span>을 적어주세요.
+        <span class="signature-color font-bold">당신의 생각</span>을 적어주세요.
       </div>
     </div>
     <!-- search bar -->
@@ -132,6 +132,9 @@ export default {
 .decoration-indigo {
   text-decoration-line: underline;
   text-decoration-color: #6366f1;
+}
+.signature-color {
+  color: rgb(146, 208, 80);
 }
 /* 검색바 style 여기 시작 */
 .search_bar {
