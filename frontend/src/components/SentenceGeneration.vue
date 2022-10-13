@@ -156,6 +156,7 @@ export default {
 .word_cloud {
   width: 30rem;
   margin: 2rem;
+  border-radius: 70%;
 }
 .decoration-sky {
   text-decoration-line: underline;
