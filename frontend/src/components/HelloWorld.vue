@@ -38,8 +38,8 @@
       </div>
       <!-- table -->
       <div v-if="ClassificationTrigger" class="text-xl">
-        <span class="decoration-indigo font-bold">{{ this.sentence }}</span
-        >에 어울리는 분야는 <span class="decoration-indigo font-bold">{{ this.prediction }}</span
+        <span class="signature-color font-bold">{{ this.sentence }}</span
+        >에 어울리는 분야는 <span class="signature-color font-bold">{{ this.prediction }}</span
         >입니다.
         <br />
         <span class="">해당 분야의 베스트 셀러는 다음과 같습니다.</span>
