@@ -9,21 +9,21 @@
         <img
           alt="Word Cloud"
           src="../assets/WordCloud/코스모스(3차_불용어_사전_반영).png"
-          class="word_cloud"
+          class="word-cloud"
         />
       </div>
       <div v-else-if="title == '사피엔스'">
         <img
           alt="Word Cloud"
           src="../assets/WordCloud/사피엔스(3차_불용어_사전_반영).png"
-          class="word_cloud"
+          class="word-cloud"
         />
       </div>
       <div v-else-if="title == '나미야 잡화점의 기적'">
         <img
           alt="Word Cloud"
           src="../assets/WordCloud/나미야_잡화점의_기적(3차_불용어_사전_반영).png"
-          class="word_cloud"
+          class="word-cloud"
         />
       </div>
     </div>
@@ -32,13 +32,13 @@
       >에 대해 더 궁금한 게 있으시다면 입력해주세요.<br />기존 고객 리뷰를 요약해서 알려드립니다.
     </div>
     <!-- search bar -->
-    <div class="search_bar">
-      <div class="search_svg">
+    <div class="search-bar">
+      <div class="search-svg">
         <svg
           focusable="false"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          class="search_img"
+          class="search-img"
         >
           <path
             d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
@@ -46,7 +46,7 @@
         </svg>
         <input
           type="text"
-          class="generation_search"
+          class="generation-search"
           ref="prompt"
           @keypress.enter="api_call"
           name="input"
@@ -153,7 +153,7 @@ export default {
 .font-NotoSans {
   font-family: "Noto Sans KR", sans-serif;
 }
-.word_cloud {
+.word-cloud {
   width: 30rem;
   margin: 2rem;
   border-radius: 70%;
@@ -166,7 +166,7 @@ export default {
   font-weight: 700;
 }
 /* 검색바 style 여기 시작 */
-.search_bar {
+.search-bar {
   border: 0px solid;
   width: fit-content;
   border-radius: 1rem;
@@ -175,14 +175,14 @@ export default {
   background: white;
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 }
-.search_svg {
+.search-svg {
   display: flex;
 }
-.search_img {
+.search-img {
   width: 1.7rem;
   padding: 0 0.5rem 0 0.5rem;
 }
-.generation_search {
+.generation-search {
   padding: 1rem 1rem 1rem 0px;
   border-radius: 1rem;
   width: 30rem;

@@ -1,5 +1,9 @@
 <template>
   <div class="font-NotoSans downUp">
+    <!-- logo -->
+    <div>
+      <span class="font-bold text-xl">A<span class="signature-color">i</span>Letter</span>
+    </div>
     <!-- main -->
     <div class="hello">
       <div class="mt-13">
@@ -11,13 +15,13 @@
       </div>
     </div>
     <!-- search bar -->
-    <div class="search_bar">
-      <div class="search_svg">
+    <div class="search-bar">
+      <div class="search-svg">
         <svg
           focusable="false"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          class="search_img"
+          class="search-img"
         >
           <path
             d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
@@ -25,7 +29,7 @@
         </svg>
         <input
           type="text"
-          class="think_search"
+          class="think-search"
           ref="prompt"
           @keypress.enter="api_call"
           name="input"
@@ -34,7 +38,7 @@
       </div>
     </div>
     <!-- table -->
-    <div v-if="ClassificationTrigger" class="text-xl" id="bestseller_table">
+    <div v-if="ClassificationTrigger" class="text-xl">
       <span class="decoration-indigo font-bold">{{ this.sentence }}</span
       >에 어울리는 분야는 <span class="decoration-indigo font-bold">{{ this.prediction }}</span
       >입니다.
@@ -137,7 +141,7 @@ export default {
   color: rgb(146, 208, 80);
 }
 /* 검색바 style 여기 시작 */
-.search_bar {
+.search-bar {
   border: 0px solid;
   width: fit-content;
   border-radius: 1rem;
@@ -146,14 +150,14 @@ export default {
   background: white;
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 }
-.search_svg {
+.search-svg {
   display: flex;
 }
-.search_img {
+.search-img {
   width: 1.7rem;
   padding: 0 0.5rem 0 0.5rem;
 }
-.think_search {
+.think-search {
   padding: 1rem 1rem 1rem 0px;
   border-radius: 1rem;
   width: 30rem;

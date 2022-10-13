@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="table_card">
+    <div class="table-card">
       <!-- table 좌측 -->
       <div class="float-left mr-20">
         <table v-for="item in left_items" :key="item.title">
@@ -126,7 +126,7 @@ img {
   height: 11rem;
   padding-right: 1rem;
 }
-.table_card {
+.table-card {
   display: inline-flex;
   border: 0px solid;
   border-radius: 1rem;
