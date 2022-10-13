@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="inline-flex mt-12 table_card">
+    <div class="table_card">
       <!-- table 좌측 -->
       <div class="float-left mr-20">
         <table v-for="item in left_items" :key="item.title">
