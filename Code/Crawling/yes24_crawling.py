@@ -12,7 +12,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning) # concat 쓰라�
 
 
 try:
-  URL = 'http://www.yes24.com/Product/Goods/2312211'
+  URL = 'http://www.yes24.com/Product/Goods/112929848'
 
   chrome_options = webdriver.ChromeOptions()
   driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
@@ -21,8 +21,8 @@ try:
   driver.find_element(By.XPATH, '''//*[@id="yDetailTabNavWrap"]/div/div[2]/ul/li[2]/a''').send_keys(Keys.ENTER) #리뷰 클릭
 
   df = pd.DataFrame(columns=['part','title','rating','text'])
-  part = '소설'
-  title = '코스모스'
+  part = '경제/경영'
+  title = '넘버스 스틱!'
   print('part: ', part)
   print('title: ', title)
 
