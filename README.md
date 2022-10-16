@@ -140,12 +140,6 @@ frontend, backend
 
 ## 기술 스택
 
-| frontend                                                                                       | backend                                                                                             | 개발환경 구축                                                                                                 | 데이터 전처리 | 모델 | IDE |
-| ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------- | ---- | --- |
-| <img src="https://img.shields.io/badge/Vue.js-4FC08D?style=flat&logo=Vue.js&logoColor=white"/> | <img src="https://img.shields.io/badge/Flask-000000?style=flat-square&logo=Flask&logoColor=white"/> | <img src="https://img.shields.io/badge/Amazon EC2-FF9900?style=flat-square&logo=Amazon-EC2&logoColor=white"/> |               |      |     |
-|                                                                                                |                                                                                                     | <img src="https://img.shields.io/badge/Ubuntu-E95420?style=flat-square&logo=Ubuntu&logoColor=white"/>         |               |      |     |
-
-<h1>기술 스택</h1>
 <table>
   <tr align="center">
     <td><strong>frontend</strong></td>
