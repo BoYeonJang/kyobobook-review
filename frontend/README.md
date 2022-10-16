@@ -1,24 +1,27 @@
 # frontend
 
-## Project setup
+프레임워크: [Vue](https://cli.vuejs.org/)
+
+로컬 실행 방법
+
+## frontend 폴더로 이동
+
+```
+cd frontend
+```
+
+## 프로젝트 셋업
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+## 개발 서버 구동
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## 실행 주소
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+> [http://localhost:8080/](http://localhost:8080/)
