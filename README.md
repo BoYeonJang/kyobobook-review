@@ -2,43 +2,11 @@
 
 ## frontend
 
-프레임워크: [Vue](https://cli.vuejs.org/)
-
-로컬 실행 방법
-
-```
-cd frontend
-```
-
-```
-npm install
-```
-
-```
-npm run serve
-```
-
-> `http://localhost:8080/`
+[frontend README.md로 이동](frontend/README.md)
 
 ## backend
 
-프레임워크: [Flask](https://flask.palletsprojects.com/en/2.2.x/)
-
-로컬 실행 방법
-
-```
-pipenv install && pipenv shell
-```
-
-```
-cd backend
-```
-
-```
-flask run
-```
-
-> `http://localhost:5000/`
+[backend README.md로 이동](backend/README.md)
 
 ## docker
 
@@ -56,28 +24,32 @@ docker-compose up
 
 ```
 ├── backend/
-│   ├── app.ini
+│   ├── ...
 │   ├── app.py
 │   ├── wsgi.py
-│   ├── requirements.txt
-│   └── Dockerfile
+│   ├── Dockerfile
+│   └── README.md
 ├── frontend/
 │   ├── ...
 │   ├── src/
 │   │   ├── components/
 │   │   └── App.vue
-│   ├── api.js
+│   ├── api.js nginx.conf
 │   ├── nginx.conf
-│   └── Dockerfile
+│   ├── Dockerfile
+│   └── README.md
 ├── Code/
 │   ├── Analysis/
-│   └── Crawling/
+│   ├── Classification/
+│   ├── Crawling/
+│   └── README.md
 ├── Data/
 │   ├── 리뷰순/
 │   ├── 모델/
-│   │   ├── 나미야 잡화점의 기적/
-│   │   ├── 사피엔스/
-│   │   └── 코스모스/
+│   │   ├── 분류기/
+│   │   │   └── checkpoint-doccls/
+│   │   └── 생성기/
+│   │   │   └── checkpoint-generation/
 │   ├── 분야별/
 │   └── Top3/
 ├── docker-compose.yml
@@ -94,7 +66,7 @@ docker-compose up
 용량 문제로 인해 최소 기능 동작을 위해 리뷰가 가장 많은 책 Top3를 선정했다.
 
 1. 나미야 잡화점의 기적 - 소설
-2. 코스모스 - 교양과학
+2. 코스모스 - 과학
 3. 사피엔스 - 인문
 
 교보문고 + 교보ebook + yes24의 데이터를 크롤링했다.
@@ -105,35 +77,9 @@ docker-compose up
 
 ## 크롤링 방법
 
-`cd Code/Crawling` 폴더로 이동 후 [가상 환경 실행 방법](Code/Crawling/readme.md)
+[Crawling README.md로 이동](Code/README.md)
 
-교보문고
-
-```
-python kyobo-data-crawling.py
-```
-
-책 한 권만
-
-```
-python kyobo-data-crawling-one.py
-```
-
-yes24
-
-```
-python yes24_crawling.py
-```
-
-ebook
-
-```
-python ebook_crawling.py
-```
-
-## pipenv 설정
-
-Pipenv 설치
+## pipenv 설치
 
 ```
 pip3 install pipenv
@@ -141,34 +87,10 @@ pip3 install pipenv
 pip install pipenv
 ```
 
-clone한 레포지토리 폴더로 이동 후 가상환경 패키지 설치
+pipenv 가상환경 패키지 설치
 
 ```
 pipenv install
-```
-
-실행
-
-```
-pipenv shell
-```
-
-가상환경에 제대로 동작하는지 확인 하려면
-
-```
-pipenv --venv
-```
-
-가상환경 종료는
-
-```
-exit
-```
-
-가상환경 삭제는
-
-```
-pipenv --rm
 ```
 
 ## ToDo
@@ -210,7 +132,7 @@ frontend, backend
 - [x] 10월 10일(월), 11일(화) 발표자료와 웹 완성하기
 - [x] 10월 12일(수) 멘토님께 전체적인 피드백 받기
 - [x] 10월 13일(목) 피드백 받은 것 개선 하기
-- [ ] 10월 14일(금) 발표
+- [x] 10월 14일(금) 발표
 
 ## 서비스 아키텍처
 
