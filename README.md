@@ -137,3 +137,48 @@ frontend, backend
 ## 서비스 아키텍처
 
 ![서비스_아키텍처](./img/서비스_아키텍처.png)
+
+## 기술 스택
+
+| frontend                                                                                       | backend                                                                                             | 개발환경 구축                                                                                                 | 데이터 전처리 | 모델 | IDE |
+| ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------- | ---- | --- |
+| <img src="https://img.shields.io/badge/Vue.js-4FC08D?style=flat&logo=Vue.js&logoColor=white"/> | <img src="https://img.shields.io/badge/Flask-000000?style=flat-square&logo=Flask&logoColor=white"/> | <img src="https://img.shields.io/badge/Amazon EC2-FF9900?style=flat-square&logo=Amazon-EC2&logoColor=white"/> |               |      |     |
+|                                                                                                |                                                                                                     | <img src="https://img.shields.io/badge/Ubuntu-E95420?style=flat-square&logo=Ubuntu&logoColor=white"/>         |               |      |     |
+
+<h1>기술 스택</h1>
+<table>
+  <tr align="center">
+    <td><strong>frontend</strong></td>
+    <td><strong>backend</strong></td>
+    <td><strong>개발환경 구축</strong></td>
+    <td><strong>데이터 전처리</strong></td>
+    <td><strong>모델</strong></td>
+    <td><strong>IDE</strong></td>
+  </tr>
+  <tr align="center">
+    <td>
+      <img src="https://img.shields.io/badge/Vue.js-4FC08D?style=flat&logo=Vue.js&logoColor=white"/>
+    </td>
+    <td>
+      <img src="https://img.shields.io/badge/Flask-000000?style=flat-square&logo=Flask&logoColor=white"/>
+    </td>
+    <td>
+      <img src="https://img.shields.io/badge/Amazon EC2-FF9900?style=flat-square&logo=Amazon-EC2&logoColor=white"/>
+      <br>
+      <img src="https://img.shields.io/badge/Ubuntu-E95420?style=flat-square&logo=Ubuntu&logoColor=white"/>
+    </td>
+    <td>
+      <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=PyTorch&logoColor=white"/>
+    </td>
+    <td>
+      <img src="https://img.shields.io/badge/KoBERT-9558B2?style=flat-square&logo=KoBERT&logoColor=white"/>
+      <br>
+      <img src="https://img.shields.io/badge/KoGPT2-EA4AAA?style=flat-square&logo=KoGPT2&logoColor=white"/>
+    </td>
+    <td>
+      <img src="https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=Jupyter&logoColor=white"/>
+      <br>
+      <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=flat-square&logo=Visual-Studio-Code&logoColor=white"/>
+    </td>
+  </tr>
+</table>
