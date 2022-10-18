@@ -5,7 +5,7 @@
     </div>
     <div class="word-cloud-card-bottom">
       <div>
-        <span class="decoration-sky font-bold">{{ title }}</span
+        <span class="signature-color font-bold">{{ title }}</span
         >의 전체적인 워드 클라우드입니다.
       </div>
       <div v-if="title == '코스모스'">
@@ -31,7 +31,7 @@
       </div>
     </div>
     <div>
-      <span class="decoration-sky font-bold">{{ title }}</span
+      <span class="signature-color font-bold">{{ title }}</span
       >에 대해 더 궁금한 게 있으시다면 입력해주세요.<br />기존 고객 리뷰를 요약해서 알려드립니다.
     </div>
     <!-- search bar -->
@@ -163,6 +163,9 @@ export default {
 .decoration-sky {
   text-decoration-line: underline;
   text-decoration-color: #0ea5e9;
+}
+.signature-color {
+  color: rgb(146, 208, 80);
 }
 .font-bold {
   font-weight: 700;
