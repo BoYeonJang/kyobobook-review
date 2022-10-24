@@ -1,5 +1,7 @@
 # kyobobook-review
 
+![Imgur](https://i.imgur.com/rLADWkp.png)
+
 ## frontend
 
 [frontend README.md로 이동](frontend/README.md)
