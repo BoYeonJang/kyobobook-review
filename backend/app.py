@@ -1,11 +1,12 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from generation_inference import *
 from classification_inference import *
 
 # Flask 객체 인스턴스 생성
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
+CORS(app, resources={r'*': {'origins': 'https://www.kyobook.link/'}})
 
 # 접속 URL 설정
 
