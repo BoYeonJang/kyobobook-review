@@ -6,7 +6,7 @@ from classification_inference import *
 # Flask 객체 인스턴스 생성
 app = Flask(__name__)
 # CORS(app)
-CORS(app, resources={r'*': {'origins': 'https://www.kyobook.link/'}})
+CORS(app, resources={r'*': {'origins': '*'}})
 
 # 접속 URL 설정
 
