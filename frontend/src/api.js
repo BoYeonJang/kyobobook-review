@@ -1,4 +1,7 @@
-const baseURL = "http://127.0.0.1:5000/";
+// 로컬
+// const baseURL = "http://127.0.0.1:5000/";
+// 배포
+const baseURL = process.env.VUE_APP_BACKEND_URL;
 const get = async endPoint => {
   console.log("request URL", baseURL + endPoint);
   return await fetch(baseURL + endPoint);
